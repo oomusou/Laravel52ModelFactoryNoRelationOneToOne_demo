@@ -12,9 +12,9 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        collect(range(1, 10))->each(function ($index) {
+        collect(range(1, 10))->each(function (int $userId) {
             factory(Post::class)->create([
-                'user_id' => $index
+                'user_id' => $userId
             ]);
         });
     }
