@@ -1,5 +1,6 @@
 <?php
 
+use App\Post;
 use Illuminate\Database\Seeder;
 
 class PostTableSeeder extends Seeder
@@ -11,6 +12,10 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        collect(range(1, 10))->each(function ($index) {
+            factory(Post::class)->create([
+                'user_id' => $index
+            ]);
+        });
     }
 }
